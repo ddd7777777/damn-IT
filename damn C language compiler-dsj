@@ -1,0 +1,163 @@
+void factor()
+{
+    if(flag == 0)
+    {
+        return;
+    }
+    if(isalpha(str[i][0])||!strcmp(str[i], "_"))
+    {
+        printf("<因子>→<标识符>\n");
+        sign();
+    }
+    else if(isdigit(str[i][0]))
+    {
+        printf("<因子>→<无符号整数>\n");
+        signless_int();
+    }
+    else if(!strcmp(str[i], "("))
+    {
+        i++;
+        printf("<因子>→(<算数表达式>)\n");
+        express_calculate();
+        if(!strcmp(str[i], ")"))
+        {
+            i++;
+        }
+        else
+        {
+            flag = 0;
+        }
+    }
+    else
+    {
+        flag = 0;
+    }
+}
+void signless_int()
+{
+    if(flag == 0)
+    {
+        return;
+    }
+    if(isdigit(str[i][k]))
+    {
+        printf("<无符号整数>→<数字><N>\n");
+        num();
+        signless_int2();
+        i++;
+        k = 0;
+    }
+    else
+    {
+        flag = 0;
+    }
+}
+void signless_int2()
+{
+    if(flag == 0)
+    {
+        return;
+    }
+    if(isdigit(str[i][k]))
+    {
+        printf("<N>→<数字><N>\n");
+        num();
+        signless_int2();
+    }
+    else
+    {
+        printf("<N>→<null>\n");
+    }
+}
+void word()
+{
+    if(flag == 0)
+    {
+        return;
+    }
+    if(isalpha(str[i][k]))
+    {
+        printf("<字母>→%c\n", str[i][k]);
+        k++;
+    }
+    else
+    {
+        flag = 0;
+    }
+}
+void num()
+{
+    if(flag == 0)
+    {
+        return;
+    }
+    if(isdigit(str[i][k]))
+    {
+        printf("<数字>→%c\n", str[i][k]);
+        k++;
+    }
+    else
+    {
+        flag = 0;
+    }
+}
+
+int main()
+{
+    printf("##########################################\n");
+    printf("#                                        #\n");
+    printf("#                                        #\n");
+    printf("#                                        #\n");
+    printf("#              小C语言编译器             #\n");
+    printf("#                                        #\n");
+    printf("#                                        #\n");
+    printf("#                                        #\n");
+    printf("##########################################\n");
+    cout<<"请输入任意值并按回车启动编译器！"<<endl;
+	cout<<"编译器将按照文本进行"<<" "<<"词法->语法->语义分析->目标代码生成"<<" "<<"进行编译"<<endl;
+	int t;cin>>t;
+	while(1){
+    cout << "*******************************"<<endl;
+    cout << "*                             *"<<endl;
+    cout << "*          词法分析           *"<<endl;
+    cout << "*                             *"<<endl;
+    cout << "*******************************"<<endl;
+    cout<<"生成成功！"<<endl; 
+    cout << "结果存在文件out1.txt"<<endl;
+    cout << endl <<endl;
+    cout << "*******************************"<<endl;
+    cout << "*                             *"<<endl;
+    cout << "*          语法分析           *"<<endl;
+    cout << "*                             *"<<endl;
+    cout << "*******************************"<<endl;
+    cout<<"生成成功！"<<endl;
+    cout << "结果存在文件out2.txt"<<endl;
+    cout <<endl <<endl;
+    cout << "*******************************"<<endl;
+    cout << "*                             *"<<endl;
+    cout << "*    语义分析及中间代码生成   *"<<endl;
+    cout << "*                             *"<<endl;
+    cout << "******************************"<<endl;
+    cout<<"生成成功！"<<endl;
+    cout << "结果存在文件out3.txt"<<endl;
+      cout <<endl <<endl;
+    cout << "*******************************"<<endl;
+    cout << "*                             *"<<endl;
+    cout << "*        目标代码生成         *"<<endl;
+    cout << "*                             *"<<endl;
+    cout << "******************************"<<endl;
+    cout<<"生成成功！"<<endl;
+    cout << "结果存在文件out4.txt"<<endl;
+    cout <<endl <<endl;
+    cout << "*******************************"<<endl;
+    cout << "*                             *"<<endl;
+    cout << "*         谢谢使用！          *"<<endl;
+    cout << "*                             *"<<endl;
+    cout << "*******************************"<<endl;
+    word1();//词法分析
+    yu2();//语法分析
+    yi3();//语义分析及中间代码生成
+    zjd();  
+	return 0;
+}
+}
