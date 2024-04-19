@@ -1,38 +1,38 @@
 ##王淏宇上传代码
-void S()
+无效 S()
 {
-    printf("<程序>→<main关键字>(){<声明序列><语句序列>}\n");
+    printf("<程序>→<主关键字>(){<语句序列><语句序列>}\n");
     key_main();
     if(!strcmp(str[i], "("))
     {
-        i++;
+        我++;
         if(!strcmp(str[i], ")"))
         {
-            i++;
+            我++;
             if(!strcmp(str[i], "{"))
             {
-                i++;
-                state_declare();
-                state_sentence();
+                我++;
+                状态声明（）；
+                状态语句（）；
                 if(!strcmp(str[i], "}"))
                 {
-                    i++;
-                    return;
+                    我++;
+                    返回;
                 }
             }
-            else
+            别的
             {
-                flag = 0;
+                标志= 0；
             }
         }
-        else
+        别的
         {
-            flag = 0;
+            标志= 0；
         }
     }
-    else
+    别的
     {
-        flag = 0;
+        标志= 0；
     }
     if(flag == 0)
     {
