@@ -6,7 +6,7 @@ void sentence_if()
     }
     if(!strcmp(str[i], "if"))
     {
-        printf("<ifÓï¾ä>¡ú<if¹Ø¼ü×Ö> (<±í´ïÊ½>)<¸´ºÏÓï¾ä><N>\n");
+        printf("<ifè¯­å¥>â†’<ifå…³é”®å­—> (<è¡¨è¾¾å¼>)<å¤åˆè¯­å¥><N>\n");
         key_if();
         if(!strcmp(str[i], "("))
         {
@@ -41,18 +41,18 @@ void sentence_if_else()
     }
     if(!strcmp(str[i], "else"))
     {
-        printf("<N>¡ú<else¹Ø¼ü×Ö><¸´ºÏÓï¾ä>\n");
+        printf("<N>â†’<elseå…³é”®å­—><å¤åˆè¯­å¥>\n");
         key_else();
         sentence_multiple();
     }
     else
     {
-        printf("<N>¡ú<null>\n");
+        printf("<N>â†’<null>\n");
     }
 }
 void sentence_while()
 {
-    printf("<whileÓï¾ä>¡ú<while¹Ø¼ü×Ö> (<±í´ïÊ½>)<¸´ºÏÓï¾ä>\n");
+    printf("<whileè¯­å¥>â†’<whileå…³é”®å­—> (<è¡¨è¾¾å¼>)<å¤åˆè¯­å¥>\n");
     key_while();
     if(!strcmp(str[i], "("))
     {
@@ -79,7 +79,7 @@ void sentence_while()
 }
 void sentence_for()
 {
-    printf("<forÓï¾ä>¡ú<for¹Ø¼ü×Ö> (<±í´ïÊ½>;<±í´ïÊ½>;<±í´ïÊ½>) <¸´ºÏÓï¾ä>\n");
+    printf("<forè¯­å¥>â†’<forå…³é”®å­—> (<è¡¨è¾¾å¼>;<è¡¨è¾¾å¼>;<è¡¨è¾¾å¼>) <å¤åˆè¯­å¥>\n");
     key_for();
     if(!strcmp(str[i], "("))
     {
@@ -95,8 +95,7 @@ void sentence_for()
                 express();
                 if(!strcmp(str[i], ")"))
                 {
-                    i++;
-                    sentence_multiple();
+                    i++; sentence_multiple();
                 }
                 else
                 {
