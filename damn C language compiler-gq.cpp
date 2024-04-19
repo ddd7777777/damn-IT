@@ -1,6 +1,6 @@
 void sentence_if()
 {
-    if(flag == 0)
+    if(flag == 0) //如果flag=0，说明不存在，所以直接return退出。
     {
         return;
     }
