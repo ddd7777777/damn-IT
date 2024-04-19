@@ -1,0 +1,128 @@
+##王淏宇上传代码
+void S()
+{
+    printf("<程序>→<main关键字>(){<声明序列><语句序列>}\n");
+    key_main();
+    if(!strcmp(str[i], "("))
+    {
+        i++;
+        if(!strcmp(str[i], ")"))
+        {
+            i++;
+            if(!strcmp(str[i], "{"))
+            {
+                i++;
+                state_declare();
+                state_sentence();
+                if(!strcmp(str[i], "}"))
+                {
+                    i++;
+                    return;
+                }
+            }
+            else
+            {
+                flag = 0;
+            }
+        }
+        else
+        {
+            flag = 0;
+        }
+    }
+    else
+    {
+        flag = 0;
+    }
+    if(flag == 0)
+    {
+        return;
+    }
+}
+
+#王淏宇代码已修改
+void key_main()
+{
+    if(flag == 0)
+    {
+        return;
+    }
+    if(!strcmp(str[i], "main"))
+    {
+        i++;
+        printf("<main关键字>→main\n");
+    }
+    else
+    {
+        flag = 0;
+    }
+}
+void state_declare()
+{
+    if(!strcmp(str[i], "int"))
+    {
+        printf("<声明序列>→<声明语句><声明序列>\n");
+        yujv();
+        state_declare();
+    }
+    else
+    {
+        printf("<声明序列>→<null>\n");
+    }
+    if(flag == 0)
+    {
+        return;
+    }
+}
+void state_sentence()
+{
+    if(flag == 0)
+    {
+        return;
+    }
+    printf("<语句序列>→<语句><N>\n");
+    sentence();
+    state_sentence2();
+}
+void state_sentence2()
+{
+    if(flag == 0)
+    {
+        return;
+    }
+    if(isalpha(str[i][0]))
+    {
+        printf("<N>→<语句><N>\n");
+        sentence();
+        state_sentence2();
+    }
+    else
+    {
+        printf("<N>→<null>\n");
+    }
+}
+void yujv()
+{
+    if(flag == 0)
+    {
+        return;
+    }
+    if(!strcmp(str[i], "int"))
+    {
+        printf("<声明语句>→<int关键字><标识符表>;\n");
+        key_int();
+        sign_table();
+        if(!strcmp(str[i], ";"))
+        {
+            i++;
+        }
+        else
+        {
+            flag = 0;
+        }
+    }
+    else
+    {
+        flag = 0;
+    }
+}
